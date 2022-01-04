@@ -44,7 +44,7 @@ class MotherForm(ModelForm):
 class ChildForm(ModelForm):
     class Meta:
         model = Child
-        fields = ( 'first_name', 'last_name', 'birth_time', 'birth_date', 'birth_place', 'gender', 'father', 'mother', 'user',  )
+        fields = ( 'first_name', 'last_name', 'birth_time', 'birth_date', 'birth_place', 'gender', 'father', 'mother', )
 
         labels = {
             'first_name': '',
@@ -55,7 +55,7 @@ class ChildForm(ModelForm):
             'gender': '',    
             'father': 'Selectionner le père', 
             'mother': 'Selectionner la mere', 
-            'user': '', 
+            
         }
 
         widgets = {
@@ -67,6 +67,5 @@ class ChildForm(ModelForm):
             'gender': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Genre',}), 
             'father': forms.Select(attrs={'class': 'form-select', 'placeholder': 'Choisir le Père',}), 
             'mother': forms.Select(attrs={'class': 'form-select', 'placeholder': 'Choisir la Mère',}),
-            'user': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'User ID',}), 
         }
 
