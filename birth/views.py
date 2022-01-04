@@ -47,7 +47,7 @@ def add_mother(request):
     })
 
 @login_required
-def add_child(request):
+def add_child(request,):
     submitted = False
     if request.method == "POST":
         form = ChildForm(request.POST)
@@ -58,6 +58,11 @@ def add_child(request):
         form = ChildForm
         if 'submitted' in request.GET:
             submitted=True
+            
+    """ def form_valid(self, form):
+        form.instance.author = self.user
+        return super().form_valid(form) """
+        
     return render(request, 'birth/add_child.html', {
         'form': form,
         'submitted': submitted,

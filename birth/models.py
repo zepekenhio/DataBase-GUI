@@ -1,17 +1,10 @@
 from django.db import models
+from django.db.models.deletion import SET_DEFAULT
 from .utils import create_new_ref_number
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Admin(models.Model):
-    username = models.CharField('username', max_length=20)
-    full_name = models.CharField('full_name', max_length=120)
-    email = models.CharField('email', max_length=20)
-    password = models.CharField('passwword', max_length=120)
-    
-    def __str__(self):
-        return self.full_name
-    
 class Father(models.Model):
     full_name = models.CharField('full_name', max_length=120)
     occupation = models.CharField('occupation', max_length=120)
@@ -42,7 +35,6 @@ class Child(models.Model):
     nni = models.CharField('nni', unique='True', max_length=10, editable=False, default=create_new_ref_number)
     father = models.ForeignKey(Father, blank=False, null=False, on_delete=models.CASCADE)
     mother = models.ForeignKey(Mother, blank=False, null=False, on_delete=models.CASCADE)
-    user = models.ForeignKey(Admin, blank=False, null=False, on_delete=models.CASCADE)
-    
+    author = models.ForeignKey(User, on_delete=SET_DEFAULT, default=None, null=True)
     def __str__(self):
         return self.fist_name
