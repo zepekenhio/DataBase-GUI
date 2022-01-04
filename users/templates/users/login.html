@@ -1,0 +1,28 @@
+{%extends 'birth/layout.html' %}
+{% load crispy_forms_tags %}
+{%block content%}
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="shadow p-4 mb-5 bg-body rounded col-md-8">
+        <center>
+            </br>
+            <form action="" , method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4"> Log In </legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="d-flex justify-content-end mb-2">
+                    <button type="submit" class="btn btn-primary mb-3 mt-3" value="">Log In</button>
+                </div>
+            </form>
+            <div class='border-top pt-3'>
+                <small class="text-muted">
+                    Need an account <a class="ml-2" href="{% url 'register' %}"> Register </a>
+                </small>
+            </div>
+
+        </center>
+    </div>
+</div>
+{%endblock%}

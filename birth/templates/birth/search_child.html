@@ -1,0 +1,24 @@
+{% extends 'birth/layout.html' %}
+
+{%block content%}
+    <center>
+          {% if searched %}
+          <h1>Vous cherhcer {{searched}}</h1>
+                </br>
+        
+                
+            {% for child in children %}
+                        <a href="{% url 'show-child' child.id %}">
+                        Student Name: {{child.first_name}}
+                    </a>
+                </br>       
+            {% endfor %}
+
+
+          {% else %}
+             <h1>Cherchiez-vous un Enfant...</h1>
+          {% endif %}
+    
+    </center>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{%extends 'birth/layout.html' %}
+
+{%block content%}
+<div class="row">
+    <div class="col-sm-2"></div>
+    
+  
+<div class="shadow p-4 mb-5 bg-body rounded col-md-8">
+    <center>
+
+        <h1>Details d'un Enfants...</h1>
+    </br>
+    <table class="table table-bordered table-striped table-hover">
+        <tbody>            
+          <tr class="success"> 
+            
+            <td><strong>ID: </strong>{{child.id}}</td>
+          </tr>
+
+            <tr class="success"> 
+            <td><strong>Nom:</strong> {{child.first_name}}</td>
+          </tr>
+
+          <tr class="success"> 
+            <td><strong>Prenom:</strong> {{child.last_name}}</td>
+          </tr>
+
+            <tr class="success"> 
+            <td><strong>Genre:</strong> {{child.gender}}</td>
+          </tr>
+
+            <tr class="success"> 
+            <td><strong>Date de naissance:</strong> {{child.birth_date}}</td>
+          </tr>
+
+          
+          <tr class="success"> 
+            <td><strong>Lieu de naissance:</strong> {{child.birth_place}}</td>
+           </tr>
+
+            <tr class="success"> 
+             <td><strong>Heure de naissance:</strong> {{child.birth_time}}</td>
+            </tr>
+
+            <tr class="success"> 
+              <td><strong>Nom du Père:</strong> {{child.father.full_name}}</td>
+             </tr>
+
+             <tr class="success"> 
+              <td><strong>Occupation du Père:</strong> {{child.father.occupation}}</td>
+             </tr>
+
+             <tr class="success"> 
+              <td><strong>Nom de la Mère:</strong> {{child.mother.full_name}}</td>
+             </tr>
+
+             <tr class="success"> 
+              <td><strong>Occupation de la Mère:</strong> {{child.mother.occupation}}</td>
+             </tr>
+
+             <tr class="success"> 
+              <td><strong>Enregistrer par:</strong> {{child.user.full_name}}</td>
+             </tr>
+
+        </tbody>
+    </table>
+
+    
+  </div>
+
+    </center>
+</div>
+</div> 
+{%endblock%}
