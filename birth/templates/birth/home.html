@@ -1,0 +1,45 @@
+{% extends 'birth/layout.html' %}
+
+{% block content %}
+<h1>liste des Enfants enegisrés...</h1>
+<div class="col-12 d-flex justify-content-end mb-2"> <a class="btn btn-primary sm " href="{% url 'add-child' %}">
+    Enregistrer un Enfants
+  </a></div>
+<table class="table table-bordered table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Genre</th>
+      <th>Lieu de naissance</th>
+      <th>Date de naissance</th>
+      <th>NNI</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for child  in  children %}
+    <tr class="success">
+      <td>{{child.first_name}}</td>
+      <td>{{child.last_name}}</td>
+      <td>{{child.gender}}</td>
+      <td>{{child.birth_place}}</td>
+      <td>{{child.birth_date}}</td>
+      <td>{{child.nni}}</td>
+      <td>
+
+        <a class="btn btn-outline-info sm" href="{% url 'show-child' child.id %}">
+          Details
+        </a>
+
+        <a class="btn btn-outline-primary sm" href="{% url 'update-child' child.id %}">
+          Update
+        </a>
+
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
